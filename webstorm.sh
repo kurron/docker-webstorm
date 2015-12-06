@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CMD="docker run \
+       --rm \
        --name webstorm \
        --net "host" \
        --env DISPLAY=unix$DISPLAY \
