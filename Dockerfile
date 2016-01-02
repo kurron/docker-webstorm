@@ -2,9 +2,9 @@ FROM kurron/docker-jetbrains-base:latest
 
 MAINTAINER Ron Kurr <kurr@kurron.org>
 
-LABEL org.kurron.ide.name="WebStorm" org.kurron.ide.version=11.2
+LABEL org.kurron.ide.name="WebStorm" org.kurron.ide.version=11.0.3
 
-ADD https://download.jetbrains.com/webstorm/WebStorm-11.0.2.tar.gz /tmp/ide.tar.gz
+ADD https://download.jetbrains.com/webstorm/WebStorm-11.0.3.tar.gz /tmp/ide.tar.gz
 
 RUN mkdir -p /opt/ide && \
     tar zxvf /tmp/ide.tar.gz --strip-components=1 -C /opt/ide && \

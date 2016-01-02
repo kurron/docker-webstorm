@@ -1,8 +1,5 @@
-idea:
+webstorm:
     build: .
-    labels:
-        org.kurron.description: "JetBrains WebStorm JavaScript IDE"
-        org.kurron.version: "11.0.1"
     container_name: "webstorm"
     net: "host"
     volumes:
