@@ -1,17 +1,15 @@
-FROM kurron/docker-jetbrains-base:latest
+FROM kurron/docker-azul-jdk-8-build:latest
 
 MAINTAINER Ron Kurr <kurr@kurron.org>
 
-LABEL org.kurron.ide.name="WebStorm" org.kurron.ide.version=11.0.3
+ENV WEBIDE_JDK /usr/lib/jvm/zulu-8-amd64
 
-ADD https://download.jetbrains.com/webstorm/WebStorm-11.0.3.tar.gz /tmp/ide.tar.gz
+ENTRYPOINT ["/opt/WebStorm-172.3317.70/bin/webstorm.sh"]
 
-RUN mkdir -p /opt/ide && \
-    tar zxvf /tmp/ide.tar.gz --strip-components=1 -C /opt/ide && \
-    rm /tmp/ide.tar.gz
+USER root
 
-ENV WEBIDE_JDK=/usr/lib/jvm/oracle-jdk-8
+ADD https://download.jetbrains.com/webstorm/WebStorm-2017.2.tar.gz /opt
 
-USER developer:developer
-WORKDIR /home/developer
-ENTRYPOINT ["/opt/ide/bin/webstorm.sh"]
+RUN rm -rf /opt/WebStorm-172.3317.70/jre64
+
+USER powerless

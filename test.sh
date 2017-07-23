@@ -2,7 +2,7 @@
 
 # Launches WebStorm inside a Docker container
 
-IMAGE=${1:-kurron/docker-webstorm:latest}
+IMAGE=${1:-kurron/webstorm-local:latest}
 
 DOCKER_GROUP_ID=$(cut -d: -f3 < <(getent group docker))
 USER_ID=$(id -u $(whoami))
